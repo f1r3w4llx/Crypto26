@@ -1,6 +1,6 @@
 ## IMPORTS ##
-from .sys_functions import clear, banner_print, choice
-
+from sys_functions import *
+from algorithms import encrypt, decrypt
 
 
 ## MENUS ##
@@ -13,6 +13,7 @@ def main_menu():
     print("1. Encrypt a message\n2. Decrypt a message\n5. Exit")
     return choice(3)
 
+
 # Submenu for encryption methods
 def encrypt_menu():
     clear()
@@ -20,6 +21,7 @@ def encrypt_menu():
     print("\nChoose an encryption method:\n")
     print("1. Symmetric - Custom!\n2. Symmetric - AES\n3. Symmetric - DES\n4. Symmetric - 3DES\n5. Asymmetric - RSA\n6. Asymmetric - ElGamal\n7. Back to main menu")
     return choice(7)
+
 
 # Submenu for decryption methods
 def decrypt_menu():
@@ -29,11 +31,33 @@ def decrypt_menu():
     print("1. Symmetric - Custom!\n2. Symmetric - AES\n3. Symmetric - DES\n4. Symmetric - 3DES\n5. Asymmetric - RSA\n6. Asymmetric - ElGamal\n7. Back to main menu")
     return choice(7)
 
+
 # Quit menu
 def quit_menù():
     while True:
-        clear()
-        banner_print()
         print("\n\nDo you want to go back to the main menu?\n")
         print("1. Yes\n2. No")
-        return choice(2)
+        return True if choice(2) == 1 else quit_program()
+
+
+
+## ALGORITHMS MENUS ##
+
+# Symmetric encryption methods menu
+def symmetric_encrypt_menu(method):
+    clear()
+    banner_print()
+    print(f"You have chosen the {method} encryption method.")
+    message, key = get_input("message"), get_input("password")
+    print(f"\nEncryption completed successfully! Your encrypted message is: [+]{encrypt(message, key, method)}[+]!")
+    return quit_menù()
+
+
+# Symmetric decryption methods menu
+def symmetric_decrypt_menu(method):
+    clear()
+    banner_print()
+    print(f"You have chosen the {method} decryption method.")
+    message, key = get_input("message"), get_input("password")
+    print(f"\nDecryption completed successfully! Your decrypted message is: [+]{decrypt(message, key, method)}[+]!")
+    return quit_menù()

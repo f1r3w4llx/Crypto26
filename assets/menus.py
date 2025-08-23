@@ -35,8 +35,7 @@ def decrypt_menu():
 # Quit menu
 def quit_menù():
     while True:
-        print("\n\nDo you want to go back to the main menu?\n")
-        print("1. Yes\n2. No")
+        print("\nDo you want to go back to the main menu? (1) Yes (2) No")
         return True if choice(2) == 1 else quit_program()
 
 
@@ -49,7 +48,7 @@ def symmetric_encrypt_menu(method):
     banner_print()
     print(f"You have chosen the {method} encryption method.")
     message, key = get_input("message"), get_input("password")
-    print(f"\nEncryption completed successfully! Your encrypted message is: [+]{encrypt(message, key, method)}[+]!")
+    print(f"\nEncryption completed successfully! Your encrypted message is: [+]  {encrypt(message, key, method)}  [+]!")
     return quit_menù()
 
 
@@ -59,5 +58,5 @@ def symmetric_decrypt_menu(method):
     banner_print()
     print(f"You have chosen the {method} decryption method.")
     message, key = get_input("message"), get_input("password")
-    print(f"\nDecryption completed successfully! Your decrypted message is: [+]{decrypt(message, key, method)}[+]!")
+    print(f"\nDecryption completed successfully! Your decrypted message is: [+]  {decrypt(message, key, method)}  [+]!")
     return quit_menù()

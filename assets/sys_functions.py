@@ -42,10 +42,8 @@ def quit_program():
 # Function to get user choice
 def choice(index):
     def invalid_choice():
-        clear()
-        print("Invalid choice!")
+        print("\nInvalid choice!")
         time.sleep(1.5)
-        clear()
     while True:
         try:
             scelta = int(input("\nPlease enter the number of your choice: "))
@@ -68,7 +66,7 @@ def get_input(type):
 
     while True:
         if type == "password":
-            user_input = input("\nPlease enter your password, all the symbols are allowed: ")
+            user_input = input("Please enter your password, all the symbols are allowed: ")
             if check(user_input):
                 return user_input
         elif type == "message":
